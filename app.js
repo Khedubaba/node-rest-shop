@@ -2,9 +2,19 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+
+mongoose.connect('mongodb://khedubaba:'+ process.env.MONGO_ATLAS_PASS +'@node-rest-shop-shard-00-00.bfdu1.mongodb.net:27017,node-rest-shop-shard-00-01.bfdu1.mongodb.net:27017,node-rest-shop-shard-00-02.bfdu1.mongodb.net:27017/node-rest-shop?ssl=true&replicaSet=atlas-w9fdhy-shard-0&authSource=admin&retryWrites=true&w=majority', 
+    {
+        // useMongoClient: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+);
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -35,7 +45,7 @@ app.use('/orders', orderRoutes);
 
 //Error handling
 app.use((req, res, next) => {
-    const error = new Error('Not dound');
+    const error = new Error('Page not found');
     error.status = 404;
     next(error);
 });
