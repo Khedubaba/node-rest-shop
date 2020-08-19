@@ -19,6 +19,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+
 //CORS headers to avoid CORS erros
 //Appending headers to funneel every request throught it to avoid CORS errors
 app.use((req, res, next) => {
