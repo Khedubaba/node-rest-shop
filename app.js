@@ -15,7 +15,6 @@ mongoose.connect('mongodb://khedubaba:'+ process.env.MONGO_ATLAS_PASS +'@node-re
     }
 );
 
-
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
