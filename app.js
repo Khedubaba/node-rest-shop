@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 
 //CORS headers to avoid CORS erros
-//Appending headers to funneel every request throught it to avoid CORS errors
+//Appending headers to funnel every request throught it to avoid CORS errors
 app.use((req, res, next) => {
     //defeining allow origin header to allow access from certain or all (*) origins
     res.header('Access-control-Allow-Origin', '*');

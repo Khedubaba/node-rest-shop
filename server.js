@@ -3,6 +3,7 @@ const app = require('./app');
 
 const port = process.env.PORT || 3000;
 
+//app is a listener for servers requests
 const server = http.createServer(app);
 
 server.listen(port);
